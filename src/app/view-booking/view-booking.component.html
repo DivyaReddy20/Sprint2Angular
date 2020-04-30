@@ -1,0 +1,31 @@
+
+<div class="container">
+    <br><br>
+    <h3>Find booking</h3>
+        <div class="form-group">
+            <label>Enter booking id : </label>
+            <input required type="number"#userIdRef='ngModel' name="bookingId" [(ngModel)]="bookingId" pattern="[0-9]" ngModel class="form-control">
+            <br>
+            <input type="submit" value="Find" class="btn btn-success" (click)="fetch()">
+        </div>
+</div>
+    <h3> booking details</h3>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>BookingId</th>
+                <th>USERID</th>
+                <th>Username</th>
+                <th>NoOFseats</th>   
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{account.bookingId}}</td>
+                <td>{{account.userId}}</td>
+                <td>{{account.passengerName}}</td>
+                <td>{{account.noofSeats}}</td> 
+             </tr>
+        <td><input type="submit" value="modify" class="btn btn-success" (click)="update()"></td> 
+    </tbody>
+    </table>   
