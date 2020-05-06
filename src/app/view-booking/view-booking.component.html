@@ -1,22 +1,25 @@
 
 <div class="container">
+    <div class="row">
+        <div class="col-sm"></div>
     <br><br>
+    <div class="col-sm">
     <h3>Find booking</h3>
         <div class="form-group">
             <label>Enter booking id : </label>
-            <input required type="number"#userIdRef='ngModel' name="bookingId" [(ngModel)]="bookingId" pattern="[0-9]" ngModel class="form-control">
+            <input required type="number" #userIdRef='ngModel' name="bookingId" [(ngModel)]="bookingId" pattern="[0-9]" ngModel class="form-control">
             <br>
-            <input type="submit" value="Find" class="btn btn-success" (click)="fetch()">
-        </div>
-</div>
-    <h3> booking details</h3>
+            <input type="submit" value="Find" class="btn btn-success" (click)="fetch()"></div>
+  
+
+    <h3> Booking Details</h3>
     <table class="table">
         <thead>
             <tr>
                 <th>BookingId</th>
-                <th>USERID</th>
-                <th>Username</th>
-                <th>NoOFseats</th>   
+                <th>UserID</th>
+                <th>UserName</th>
+                <th>NumberOFseats</th>   
             </tr>
         </thead>
         <tbody>
@@ -28,4 +31,9 @@
              </tr>
         <td><input type="submit" value="modify" class="btn btn-success" (click)="update()"></td> 
     </tbody>
-    </table>   
+    </table> 
+    </div>
+
+    <div class="col-sm"></div>
+</div>  
+</div>

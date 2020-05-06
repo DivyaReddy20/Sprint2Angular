@@ -1,19 +1,20 @@
 
-<h2 class="text-center text-success b">Fill booking details</h2>
+<h2 class="text-center text-success b">Fill Booking Details</h2>
   <div class="row justify-content-center align-items-center h-100 a">
     
     <form #userForm="ngForm">
     <div class="form-group md-form form-lg ">
-      <label for="passengerName"> Name</label>
+      <label for="passengerName">Passenger Name</label>
       <input  type="text" #userNameRef='ngModel' ng-minlength="3" ng-maxlength="8" [(ngModel)]="user.passengerName" name="passengerName" required ngModel class="form-control "id="passengerName">
-      </div>
+      <span ng-show="ngForm.passengerName.$touched && myForm.myName.$invalid"></span>
+    </div>
       <div class="form-group">
-      <label for="userId">userId:</label>
-      <input type="text" #userIdRef='ngModel'[(ngModel)]="user.userId"   placeholder="Enter id" name="userId" ngModel class="form-control" id="userId" >
+      <label for="userId">UserId:</label>
+      <input type="text" #userIdRef='ngModel'[(ngModel)]="user.userId"  placeholder="Enter id" name="userId" ngModel class="form-control" id="userId" >
     </div>
     
     <div class="form-group">
-      <label for="noofSeats">Enter noofSeats</label>
+      <label for="noofSeats">Number of Seats</label>
       <input  required [(ngModel)]="user.noofSeats" #seatsRef='ngModel' placeholder="noofSeats" name="noofSeats" pattern="[0-4]" ngModel  class="form-control" id="noofSeats">
       <div *ngIf='seatsRef.errors && seatsRef.touched' class="alert alert-danger">
 
@@ -23,8 +24,14 @@
   
     </div>
     </div>
+  
     <button [disabled]="userForm.invalid" class="btn btn-success" (click)="bookNow()">Confirm Booking</button>
   </form>
 </div>
-<h1>{{booking}}</h1>
+
+
+<div class=" row justify-content-center align-items-center">
+ 
+ </div>
+ 
 

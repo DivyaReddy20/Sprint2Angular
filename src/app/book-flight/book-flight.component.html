@@ -1,19 +1,23 @@
 <div class="container">
-    <table class="table" cellspacing=15>
-               <thead>
-            <tr>
-             
-                <th>FlightNumber</th><br>
-                <br><th>seat capacity</th><br>
-                <br><th>from_loc</th><br>
-                <br> <th>to_loc</th><br>
-                <br><th>date</th><br>
-                <br><th>TicketCost</th><br>
-                <th></th>
-            </tr>
-        </thead>
+  
+     
+     
+    <table class="table table-striped w-auto">
+        <thead>
+     <tr>
+      
+         <th>Flight_Number</th><br>
+         <br><th>Seat Capacity</th><br>
+         <br><th>Source</th><br>
+         <br><th>Destination</th><br>
+         <br><th>Date</th><br>
+         <br><th>Ticket_Cost</th><br>
+         <th></th>
+     </tr>
+ </thead>
         
      <tbody>
+        
         
             <tr *ngFor = "let flight of flights">
             <td> {{flight.flightNumber}} </td><br>
@@ -28,5 +32,6 @@
           
     </tbody>
     </table>
+    </div>
+    
 
-</div>
