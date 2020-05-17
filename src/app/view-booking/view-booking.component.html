@@ -5,16 +5,28 @@
     <br><br>
     <div class="col-sm">
     <h3>Find booking</h3>
+    <div class="card border-secondary">
+        <div class="card-body">
+    <form #userForm="ngForm">
         <div class="form-group">
             <label>Enter booking id : </label>
-            <input required type="number" #userIdRef='ngModel' name="bookingId" [(ngModel)]="bookingId" pattern="[0-9]" ngModel class="form-control">
+            <input required type="number" #userIdRef='ngModel' name="bookingId" [(ngModel)]="bookingId" ngModel class="form-control">
             <br>
-            <input type="submit" value="Find" class="btn btn-success" (click)="fetch()"></div>
-  
+             <div *ngIf='userIdRef.errors && userIdRef.touched' class="alert alert-danger">
 
-    <h3> Booking Details</h3>
-    <table class="table">
+          <div [hidden]='!userIdRef.errors.required'> Provide booking Id </div>
+    
+          <div *ngIf='userIdRef.errors.pattern'>Booking Id should be in digits only</div>
+    
+      </div>
+            <input [disabled]="userForm.invalid" type="submit" value="Find" class="btn btn-success" (click)="fetch()"></div>
+  </form> 
+ </div>
+</div>
+ <table class="table" *ngIf="status">
+
         <thead>
+
             <tr>
                 <th>BookingId</th>
                 <th>UserID</th>
@@ -29,7 +41,7 @@
                 <td>{{account.passengerName}}</td>
                 <td>{{account.noofSeats}}</td> 
              </tr>
-        <td><input type="submit" value="modify" class="btn btn-success" (click)="update()"></td> 
+        <input type="submit"  value="modify" class="btn btn-success" (click)="update()">
     </tbody>
     </table> 
     </div>
@@ -37,3 +49,5 @@
     <div class="col-sm"></div>
 </div>  
 </div>
+<h1>{{msg}}</h1>
+

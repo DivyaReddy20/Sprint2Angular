@@ -8,23 +8,25 @@ import { FlightService, addBookingDetails } from '../flight.service';
 })
 export class BookingTicketsComponent implements OnInit {
   user: addBookingDetails = new addBookingDetails(0, 0, " ", 0);
+  
   booking: any;
+  check:boolean = false;
+  check1:boolean = true;
+  
   constructor(private service: FlightService) { }
 
   ngOnInit(): void {
 
   }
   bookNow(): void {
-    
-    function getRandomInt(max) {
-      return Math.floor(Math.random() * Math.floor(max));
-    }
-    console.log(getRandomInt(100));
+
+   
     this.service.addBookings(this.user)
-      .subscribe(data => {
-        this.booking = data
-      });
-    console.log(this.user);
+      .subscribe((data) => this.booking = data);
+	  
+		this.check = true;
+		this.check1 = false;
+    
     alert(" booking successfully done.");
   }
 }

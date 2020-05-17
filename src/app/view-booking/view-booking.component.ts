@@ -11,17 +11,26 @@ export class ViewBookingComponent implements OnInit {
   customer: addBookingDetails = new addBookingDetails(0,0," ",0);
 bookingId:number;
 account:any=[];
+status:boolean;
+msg:string;
   constructor(private service:FlightService ,private router:Router) { }
 
   ngOnInit(): void {
   }
   fetch(){
-    console.log("this.bookingId");
+    this.status=true;
     let resp=this.service.showBooking(this.bookingId);
-    resp.subscribe((data)=>this.account=data);
+    resp.subscribe(data =>this.account=data);
+    console.log(this.account);
+    err=>{
+      console.log("exception occured");
+      this.msg="Please enter valid BookingId";
+    }
+  
 }
 update()
 {
   this.router.navigate(['add-booking']);
 }
 }
+

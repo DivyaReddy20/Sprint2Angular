@@ -1,17 +1,31 @@
 
-<h2 class="text-center text-success b">Fill Booking Details</h2>
-  <div class="row justify-content-center align-items-center h-100 a">
-    
+
+ <br> <div *ngIf="check1" class="row justify-content-center align-items-center h-100 a"><br>
+
+    <div class="card border-secondary">
+      <div class="card-body">
+	  <h2>Fill Booking Details</h2><br>
     <form #userForm="ngForm">
     <div class="form-group md-form form-lg ">
+     
       <label for="passengerName">Passenger Name</label>
-      <input  type="text" #userNameRef='ngModel' ng-minlength="3" ng-maxlength="8" [(ngModel)]="user.passengerName" name="passengerName" required ngModel class="form-control "id="passengerName">
+      <input  required type="text" #userNameRef='ngModel' pattern = "^[a-z0-9_-]{4,15}$" placeholder="EnterName" [(ngModel)]="user.passengerName" name="passengerName" required ngModel class="form-control "id="passengerName">
       <span ng-show="ngForm.passengerName.$touched && myForm.myName.$invalid"></span>
+      <div *ngIf='userNameRef.errors && userNameRef.touched' class="alert alert-danger">
+        <div [hidden]='!userNameRef.errors.required'> Enter Passenger Name </div>
+        <div *ngIf='userNameRef.errors.pattern'> Please Enter The Name properly</div>
+  
+    </div>
     </div>
       <div class="form-group">
       <label for="userId">UserId:</label>
-      <input type="text" #userIdRef='ngModel'[(ngModel)]="user.userId"  placeholder="Enter id" name="userId" ngModel class="form-control" id="userId" >
+      <input required type="text" #userIdRef='ngModel'[(ngModel)]="user.userId"  placeholder="Enterid" name="userId" ngModel class="form-control" id="userId" >
+      <div *ngIf='userIdRef.errors && userIdRef.touched' class="alert alert-danger">
+
+        <div [hidden]='!userIdRef.errors.required'> enter user id </div>
+  
     </div>
+      </div>
     
     <div class="form-group">
       <label for="noofSeats">Number of Seats</label>
@@ -25,13 +39,19 @@
     </div>
     </div>
   
-    <button [disabled]="userForm.invalid" class="btn btn-success" (click)="bookNow()">Confirm Booking</button>
+    <button [disabled]="userForm.invalid" class="btn btn-success" (click)="bookNow()">Confirm</button>
+ 
   </form>
 </div>
+</div>
+</div>
 
-
-<div class=" row justify-content-center align-items-center">
- 
+<div *ngIf="check" align="center">
+ <h2>Booking Details</h2><br>
+ <h2>Booking ID : {{booking.bookingId}}</h2>
+ <h2>Passenger Name : {{booking.passengerName}}</h2>
+ <h2>User ID : {{booking.userId}}</h2>
+ <h2>No of Seats booked: {{booking.noofSeats}}</h2>
  </div>
  
 

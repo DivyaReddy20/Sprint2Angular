@@ -5,11 +5,15 @@
 <div class="form-group md-form form-lg ">
  
     <h2 class="text-center">Cancel Booking</h2>
+    <div class="card border-secondary">
+                        <div class="card-body">
+
     <form #userForm="ngForm">
       <div class="form-group">
         <div class="col-sm">
         <label for="bookingId">BookingId:</label>
         <input required type="number" #bookIdRef='ngModel' [(ngModel)]="user.bookingId" placeholder="bookingId" name="bookingId" ngModel class="form-control" id="bookingId">
+        <br>
         <div *ngIf='bookIdRef.errors && bookIdRef.touched' class="alert alert-danger">
 
           <div [hidden]='!bookIdRef.errors.required'> Provide booking Id </div>
@@ -24,11 +28,13 @@
       </div>
      
     </form>
-
+    </div>
+  </div>
   </div>
   <div class="col-sm"></div>
   
     </div>
   </div>
+  <h2>{{msg}}</h2>
 
     
